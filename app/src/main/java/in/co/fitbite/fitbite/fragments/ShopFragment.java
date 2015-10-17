@@ -1,23 +1,29 @@
 package in.co.fitbite.fitbite.fragments;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toolbar;
+import android.widget.Toast;
 
 import java.util.List;
 
+import in.co.fitbite.fitbite.Api.Api;
+import in.co.fitbite.fitbite.App;
 import in.co.fitbite.fitbite.R;
 import in.co.fitbite.fitbite.models.Product;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 /**
@@ -32,7 +38,7 @@ public class ShopFragment extends Fragment {
     private RecyclerView recyclerViewBreakfast, recyclerViewDinner;
     private ShopFragmentAdapter adapter;
     private Button filterButton;
-
+    private List<Product> products;
     public static ShopFragment newInstance() {
         ShopFragment fragment = new ShopFragment();
         return fragment;
@@ -58,7 +64,23 @@ public class ShopFragment extends Fragment {
         recyclerViewBreakfast = (RecyclerView) v.findViewById(R.id.breakfastRecyclerView);
         recyclerViewDinner = (RecyclerView) v.findViewById(R.id.dinnerRecyclerView);
         recyclerViewBreakfast.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        List<Product> products = null;
+        Api apiHandler = ((App) getActivity().getApplication()).getApiHandler();
+        apiHandler.getProducts(
+                new Callback<List<Product>>() {
+                    @Override
+                    public void success(List<Product> productsList, Response response) {
+                        Log.d("Fitbite", "success" + response.getUrl() + response.getStatus());
+                        products = productsList;
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.d("Fitbite", "failure" + error.getUrl() + error.getMessage());
+                        Toast.makeText(getActivity(), "Check Your Internet Connection", Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                }
+        );
         adapter = new ShopFragmentAdapter(products);
         recyclerViewBreakfast.setAdapter(adapter);
         filterButton = (Button) v.findViewById(R.id.filters);
