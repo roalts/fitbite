@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import in.co.fitbite.fitbite.Api.Api;
@@ -38,7 +39,7 @@ public class ShopFragment extends Fragment {
     private RecyclerView recyclerViewBreakfast, recyclerViewDinner;
     private ShopFragmentAdapter adapter;
     private Button filterButton;
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
     public static ShopFragment newInstance() {
         ShopFragment fragment = new ShopFragment();
         return fragment;
@@ -64,6 +65,9 @@ public class ShopFragment extends Fragment {
         recyclerViewBreakfast = (RecyclerView) v.findViewById(R.id.breakfastRecyclerView);
         recyclerViewDinner = (RecyclerView) v.findViewById(R.id.dinnerRecyclerView);
         recyclerViewBreakfast.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        Product p =new Product();
+        p.setName("raghav");
+        products.add(p);
         Api apiHandler = ((App) getActivity().getApplication()).getApiHandler();
         apiHandler.getProducts(
                 new Callback<List<Product>>() {
@@ -71,6 +75,10 @@ public class ShopFragment extends Fragment {
                     public void success(List<Product> productsList, Response response) {
                         Log.d("Fitbite", "success" + response.getUrl() + response.getStatus());
                         products = productsList;
+                        Log.d("Product", products.get(0).getName() + " " + products.size());
+                        adapter = new ShopFragmentAdapter(products);
+                        recyclerViewBreakfast.setAdapter(adapter);
+
                     }
 
                     @Override
@@ -81,8 +89,9 @@ public class ShopFragment extends Fragment {
                     }
                 }
         );
-        adapter = new ShopFragmentAdapter(products);
-        recyclerViewBreakfast.setAdapter(adapter);
+
+
+        Log.d("Set Adapter", products.get(0).getName() + " " + products.size());
         filterButton = (Button) v.findViewById(R.id.filters);
         recyclerViewDinner.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recyclerViewDinner.setAdapter(adapter);

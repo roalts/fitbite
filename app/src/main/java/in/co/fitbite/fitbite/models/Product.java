@@ -10,11 +10,11 @@ public class Product {
 
     private String calories;
     private String category;
-    private Integer id;
+    private String id;
     private List<ProductImage> images = new ArrayList<ProductImage>();
     private String name;
-    private Integer price;
-    private Integer timeToCook;
+    private String price;
+    private String timeToCook;
     private String vegOrNonVeg;
 
     public String getCalories() {
@@ -33,11 +33,11 @@ public class Product {
         this.category = category;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -57,19 +57,19 @@ public class Product {
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public Integer getTimeToCook() {
+    public String getTimeToCook() {
         return timeToCook;
     }
 
-    public void setTimeToCook(Integer timeToCook) {
+    public void setTimeToCook(String timeToCook) {
         this.timeToCook = timeToCook;
     }
 
@@ -82,16 +82,16 @@ public class Product {
     }
 
     public class ProductImage {
-        private Integer id;
+        private String id;
         private String imageFile;
         private String imageSize;
-        private Integer productID;
+        private String productID;
 
-        public Integer getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(Integer id) {
+        public void setId(String id) {
             this.id = id;
         }
 
@@ -111,11 +111,11 @@ public class Product {
             this.imageSize = imageSize;
         }
 
-        public Integer getProductID() {
+        public String getProductID() {
             return productID;
         }
 
-        public void setProductID(Integer productID) {
+        public void setProductID(String productID) {
             this.productID = productID;
         }
     }
