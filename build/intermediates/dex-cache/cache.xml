@@ -2,11 +2,74 @@
 <items version="2" >
 
     <item
-        jar="/home/pujamathur/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jar="/Users/raghav/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/retrofit-1.9.0-8f980ac75fd03144667bc129d98dc980c8193771.jar" />
+    </item>
+    <item
+        jar="/Users/raghav/MyProject/fitbite/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-b9be7ca1b194e9e4bea455f2a43ebd3496d9e574.jar" />
+    </item>
+    <item
+        jar="/Users/raghav/MyProject/fitbite/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/classes-4dd5d77835f351b07ba92fd6a84edf4b22f093c2.jar" />
+    </item>
+    <item
+        jar="/Users/raghav/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/gson-2.3.1-85a54a5b5fb7a92c437a3b5c9b2a68c9b85895d0.jar" />
+    </item>
+    <item
+        jar="/Applications/Android Studio.app/Contents/android-sdk-macosx/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-dbd2e1bb329a3c11f4c6274b5f10b12ee812fb0f.jar" />
+    </item>
+    <item
+        jar="/Users/raghav/MyProject/fitbite/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/classes-54fd46954431a49afee041ff5c3f14b0e66aa8aa.jar" />
+    </item>
+    <item
+        jar="/Users/raghav/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/home/pujamathur/Documents/Github/fitbite/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-1c164d7f36c4babc897c2163d5ff778d497547a9.jar" />
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-732087c48df06d73b45467df546ce4893ce575c1.jar" />
+    </item>
+    <item
+        jar="/Users/raghav/MyProject/fitbite/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/classes-aace1be824a65ef36a3df7f1c9f1ec9ba1c7bcd8.jar" />
+    </item>
+    <item
+        jar="/Users/raghav/MyProject/fitbite/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c6d79137693d494dee16372d3921f919eb724ced">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/classes-cd6ecc40313b1f754a9c9e4400806b93cc4be850.jar" />
+    </item>
+    <item
+        jar="/Users/raghav/MyProject/fitbite/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/Users/raghav/MyProject/fitbite/app/build/intermediates/pre-dexed/debug/classes-bf28e7af52ca7024933b0cfa8132fd20ffd46bc3.jar" />
     </item>
 
 </items>
