@@ -76,7 +76,7 @@ public class ShopFragment extends Fragment {
                         Log.d("Fitbite", "success" + response.getUrl() + response.getStatus());
                         products = productsList;
                         Log.d("Product", products.get(0).getName() + " " + products.size());
-                        adapter = new ShopFragmentAdapter(products);
+                        adapter = new ShopFragmentAdapter(products, getActivity());
                         recyclerViewBreakfast.setAdapter(adapter);
 
                     }
