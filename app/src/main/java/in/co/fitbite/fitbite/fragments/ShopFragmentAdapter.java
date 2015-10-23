@@ -56,19 +56,19 @@ public class ShopFragmentAdapter extends RecyclerView.Adapter<ShopFragmentAdapte
         holder.up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Quantity UP", "UP");
                 int quantityValue = Integer.valueOf(holder.quantity.getText().toString());
-
                 quantityValue = quantityValue+1;
                 Log.d("Quantity UP", quantityValue + "");
                 holder.quantity.setText(""+quantityValue);
             }
         });
-        holder.up.setOnClickListener(new View.OnClickListener() {
+        holder.down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int quantityValue = Integer.valueOf(holder.quantity.getText().toString());
-                quantityValue--;
-                if(quantityValue >=0 )
+                quantityValue = quantityValue - 1;
+                if(quantityValue >= 0 )
                     holder.quantity.setText(""+quantityValue);
             }
         });
