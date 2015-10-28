@@ -1,6 +1,7 @@
 package in.co.fitbite.fitbite.fragments;
 
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -83,6 +84,8 @@ public class ShopFragmentAdapter extends RecyclerView.Adapter<ShopFragmentAdapte
                             public void success(Product product, Response response) {
                                 Log.d("Fitbite", "success" + response.getUrl() + response.getStatus());
                                 Log.d("Product = ", product.getName());
+                                FragmentTransaction fragmentTransaction = a.getFragmentManager().beginTransaction();
+                                fragmentTransaction.replace(R.id.container,ProductDetailsFragment.newInstance(products.get(position).getId())).addToBackStack("").commit();
                             }
 
                             @Override
@@ -93,8 +96,6 @@ public class ShopFragmentAdapter extends RecyclerView.Adapter<ShopFragmentAdapte
                             }
                         }
                 );
-
-
 
             }
         });
