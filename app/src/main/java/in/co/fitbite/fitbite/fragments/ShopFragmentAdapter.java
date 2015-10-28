@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,7 +46,7 @@ public class ShopFragmentAdapter extends RecyclerView.Adapter<ShopFragmentAdapte
     }
 
     @Override
-    public void onBindViewHolder(ProductViewHolder holder, final int position) {
+    public void onBindViewHolder(final ProductViewHolder holder, final int position) {
 
         holder.name.setText(products.get(position).getName());
         holder.price.setText("Rs." + products.get(position).getPrice()+" ");
@@ -53,11 +54,49 @@ public class ShopFragmentAdapter extends RecyclerView.Adapter<ShopFragmentAdapte
         Picasso.with(a).load("http://52.27.225.123/api/get/productImage?filename=" + products.get(position).getImages().get(0).getImageFile())
                 .fit().centerCrop().into(holder.productImage);
         holder.timeToCook.setText(products.get(position).getTimeToCook()+"min");
+        holder.up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Quantity UP", "UP");
+                int quantityValue = Integer.valueOf(holder.quantity.getText().toString());
+                quantityValue = quantityValue+1;
+                Log.d("Quantity UP", quantityValue + "");
+                holder.quantity.setText(""+quantityValue);
+            }
+        });
+        holder.down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int quantityValue = Integer.valueOf(holder.quantity.getText().toString());
+                quantityValue = quantityValue - 1;
+                if(quantityValue >= 0 )
+                    holder.quantity.setText(""+quantityValue);
+            }
+        });
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = a.getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.container,ProductDetailsFragment.newInstance(products.get(position).getId())).addToBackStack("").commit();
+                Api apiHandler = ((App) a.getApplication()).getApiHandler();
+                apiHandler.getProduct(
+                        products.get(position).getId(),
+                new Callback<Product>() {
+                            @Override
+                            public void success(Product product, Response response) {
+                                Log.d("Fitbite", "success" + response.getUrl() + response.getStatus());
+                                Log.d("Product = ", product.getName());
+                                FragmentTransaction fragmentTransaction = a.getFragmentManager().beginTransaction();
+                                fragmentTransaction.replace(R.id.container,ProductDetailsFragment.newInstance(products.get(position).getId())).addToBackStack("").commit();
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+                                Log.d("Fitbite", "failure" + error.getUrl() + error.getMessage());
+                                Toast.makeText(a, "Check Your Internet Connection", Toast.LENGTH_SHORT)
+                                        .show();
+                            }
+                        }
+                );
+
             }
         });
     }
@@ -74,12 +113,19 @@ public class ShopFragmentAdapter extends RecyclerView.Adapter<ShopFragmentAdapte
         TextView calories;
         TextView timeToCook;
         ImageView productImage;
+        Button up, down;
+        TextView quantity;
+        ImageView vegNonVeg;
         View v;
 
         public ProductViewHolder(View itemView) {
             super(itemView);
             v = itemView;
             name = (TextView) itemView.findViewById(R.id.name);
+            vegNonVeg = (ImageView) itemView.findViewById(R.id.vegNonVegIndicator);
+            up = (Button) itemView.findViewById(R.id.incrementButton);
+            down = (Button) itemView.findViewById(R.id.decrementButton);
+            quantity = (TextView) itemView.findViewById(R.id.quantity);
             productImage = (ImageView) itemView.findViewById(R.id.productImage);
             price = (TextView) itemView.findViewById(R.id.price);
             calories = (TextView) itemView.findViewById(R.id.calories);
